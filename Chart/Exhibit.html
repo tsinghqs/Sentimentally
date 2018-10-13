@@ -5,26 +5,24 @@
     <title>Sentimentally</title>
     <link rel="stylesheet" type="text/css" href="CSS/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 <body>
-    <div class="form">
+    <div class="form-group d-flex justify-content-center align-items-center">
         <!--Action would be JavaScript that processes parameters -->
-        <form action="">
-            Search: <br>
-            <input type="text" name="@twitter"> <br>
-            <input type="submit" value="Submit">
+        <form action="" class="">
+            <div class="row">
+                <label for="search">Search Twitter</label> <br>
+                <input type="text" name="@twitter" id="search" class="form-control"> <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </div>
     <div>
         <a href="#" id="topic">
 
         </a>
-    </div>
-    <div class="" id="Chart">
-        <canvas>
-
-        </canvas>
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -37,6 +35,48 @@
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
+    </div>
+    <div class="" id="Chart" style="backgrond-color: white;">
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <script>
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
     </div>
     <script type="text/javascript" src="JS/swiper.min.js"></script>
     <!-- Initialize Swiper -->
@@ -58,5 +98,8 @@
             },
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
