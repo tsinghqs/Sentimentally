@@ -15,7 +15,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 #My weird text graphics lmao
-print('-------------------------\n\nTwitter Sentiment Tool\n\nby: Deval Parikh\n\n-------------------------\n')
+print('-------------------------\n\nTwitter Sentiment Tool\n\nSentimental.ly\n\n-------------------------\n')
 #What the user desires to search
 stringtobesearched = input('What would you like to run the twitter sentiment analysis on?: ')
 
