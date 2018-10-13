@@ -1,4 +1,4 @@
-//Tarun Singh
+'''Tarun Singh'''
 import re 
 import tweepy 
 from tweepy import OAuthHandler 
