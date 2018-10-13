@@ -1,11 +1,16 @@
 body {
-    background: darkcyan !important;
+    background: #00aced !important;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color:#000;
     margin: 0;
     padding: 0;
 }
+
+.form-rounded {
+    border-radius: 50px !important;
+}
+
 .swiper-container {
     width: 100%;
     padding-top: 50px;
