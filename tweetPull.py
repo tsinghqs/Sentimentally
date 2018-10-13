@@ -1,4 +1,10 @@
-'''Tarun Singh'''
+'''
+Sentimentally
+Tarun Singh
+Nathaniel Salazar
+Edward Liu
+Nabdeep Shrestha
+'''
 import re 
 import tweepy 
 from tweepy import OAuthHandler 
@@ -102,8 +108,7 @@ def main():
     # percentage of negative tweets 
     print("Negative tweets percentage: {} %".format(100*len(ntweets)/len(tweets))) 
     # percentage of neutral tweets 
-    print("Neutral tweets percentage: {} % \ 
-        ".format(100*len(tweets - ntweets - ptweets)/len(tweets))) 
+    print("Neutral tweets percentage: {} % \ ".format(100*len(tweets - ntweets - ptweets)/len(tweets)))
   
     # printing first 5 positive tweets 
     print("\n\nPositive tweets:") 
