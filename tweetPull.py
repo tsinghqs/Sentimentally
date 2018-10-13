@@ -57,7 +57,7 @@ class TwitterClient(object):
         else: 
             return 'negative'
   
-    def get_tweets(self, query, count = 10): 
+    def get_tweets(self, query, count=10):
         ''' 
         Main function to fetch tweets and parse them. 
         '''
@@ -65,10 +65,16 @@ class TwitterClient(object):
         tweets = [] 
   
         try: 
-            # call twitter api to fetch tweets 
-            fetched_tweets = self.api.search(q = query, count = count) 
-  
-            # parsing tweets one by one 
+            # call twitter api to fetch tweets
+            #TODO Search returns nothing
+            #fetched_tweets = self.api.search(q=query, count=count)
+            fetched_tweets = tweepy.Cursor(self.api.search, q=query).items(count)
+            # parsing tweets one by one
+            if fetched_tweets is None:
+                print("Nothing")
+            else:
+                print("Present")
+
             for tweet in fetched_tweets: 
                 # empty dictionary to store required params of a tweet 
                 parsed_tweet = {} 
@@ -97,12 +103,12 @@ def main():
     # creating object of TwitterClient Class 
     api = TwitterClient() 
     # calling function to get tweets 
-    tweets = api.get_tweets(query = 'Donald Trump', count = 200) 
+    tweets = api.get_tweets(query = 'Donald Trump', count=200)
   
     # picking positive tweets from tweets 
-    ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive'] 
+    ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
     # percentage of positive tweets 
-    print("Positive tweets percentage: {} %".format(100*len(ptweets)/len(tweets))) 
+    print("Positive tweets percentage: {} %".format(100*len(ptweets)/len(tweets)))
     # picking negative tweets from tweets 
     ntweets = [tweet for tweet in tweets if tweet['sentiment'] == 'negative'] 
     # percentage of negative tweets 
