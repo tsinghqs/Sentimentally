@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Sentimentally</title>
-    <link rel="stylesheet" type="text/css" href="CSS/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='swiper.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
@@ -27,12 +27,12 @@
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
+            <div class="swiper-slide"><p align="center">Tweet 1</p><p align="center">{{ value }}</p><p align="center">{{ senti }}</p></div>
+            <div class="swiper-slide"><p align="center">Tweet 2</p><p align="center">{{ value2 }}</p><p align="center">{{ senti2 }}</p></div>
+            <div class="swiper-slide"><p align="center">Tweet 3</p><p align="center">{{ value3 }}</p><p align="center">{{ senti3 }}</p></div>
+            <div class="swiper-slide"><p align="center">Tweet 4</p><p align="center">{{ value4 }}</p><p align="center">{{ senti4 }}</p></div>
+            <div class="swiper-slide"><p align="center">Tweet 5</p><p align="center">{{ value5 }}</p><p align="center">{{ senti5 }}</p></div>
+            <div class="swiper-slide"><p align="center">Tweet 6</p><p align="center">{{ value6 }}</p><p align="center">{{ senti6 }}</p></div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -48,7 +48,7 @@
                     xAxisID: 'Sentiment Score',
                     datasets: [{
                         label: 'Sentiment Score',
-                        data: [12, -19, 3, 5, 2, 3],
+                        data: [{{ average }}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -80,7 +80,7 @@
             });
         </script>
     </div>
-    <script type="text/javascript" src="JS/swiper.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='swiper.min.js')}}"></script>
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper('.swiper-container', {
